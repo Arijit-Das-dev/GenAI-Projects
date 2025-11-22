@@ -193,7 +193,7 @@ if uploaded_file is not None:
     os.environ["GRPC_TRACE"] = ""
 
     #API KEY
-    API_KEY = 'AIzaSyCMRngTm08Vsz1mvXyxuRoaIRn7PIayPlM'
+    API_KEY = 'API_KEY'
 
     #authentication
     genai.configure(api_key=API_KEY)
