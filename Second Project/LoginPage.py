@@ -188,6 +188,19 @@ with col2:
 
 st.divider()
 
+st.markdown("""
+<div style='text-align:center; margin-top:25px;'>
+   <u><h4 style='
+        color:white; 
+        font-weight:700; 
+        font-size:20px;
+        text-shadow:0 0 10px rgba(255,255,255,0.5);
+    '>
+        Contact Us
+    </h4></u>
+</div>
+""", unsafe_allow_html=True)
+
 # SOCIAL MEDIA PLATFORM ICONS
 st.markdown("""
 <div style='text-align:center; margin-top:25px;'>
