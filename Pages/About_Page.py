@@ -54,8 +54,6 @@ st.markdown("""
 st.divider()
 
 # CHOOSE YOUR AI
-import streamlit as st
-
 st.markdown("""
 <style>
 @keyframes gradientAnimation {
@@ -223,3 +221,5 @@ with col3:
         """,
         unsafe_allow_html=True
     )
+
+st.divider()

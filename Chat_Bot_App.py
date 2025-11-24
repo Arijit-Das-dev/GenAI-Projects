@@ -1,11 +1,20 @@
 import streamlit as st
 
+project5_page = st.Page(
+    
+        page="Pages/LoginPage.py",
+        title="Login/Signup",
+        icon=":material/login:",
+        default = True
+
+)
+
 About_page = st.Page(
 
         page ="Pages/About_Page.py",
         title = "Home",
         icon = ":material/account_circle:",
-        default = True
+
 )
 
 Project1_page = st.Page(
@@ -38,5 +47,5 @@ project4_page = st.Page(
 
 )
 
-pg = st.navigation(pages=[About_page, Project1_page, project2_page, Project3_page, project4_page])
+pg = st.navigation(pages=[project5_page, About_page, Project1_page, project2_page, Project3_page, project4_page])
 pg.run()
