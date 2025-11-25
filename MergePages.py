@@ -24,28 +24,6 @@ Project1_page = st.Page(
         icon = ":material/smart_toy:"
 )
 
-project2_page = st.Page(
 
-        page="Second Project/Tools.py",
-        title="Tools",
-        icon=":material/tools_installation_kit:"
-)
-
-Project3_page = st.Page(
-
-        page = "Second Project/History.py",
-        title= "History",
-        icon= ":material/history:"
-
-)
-
-project4_page = st.Page(
-
-        page="Second Project/settings.py",
-        title="Settings",
-        icon=":material/settings:"
-
-)
-
-pg = st.navigation(pages=[project5_page, About_page, Project1_page, project2_page, Project3_page, project4_page])
+pg = st.navigation(pages=[project5_page, About_page, Project1_page])
 pg.run()
