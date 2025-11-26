@@ -4,7 +4,8 @@ home_page = st.Page(
     page="Second Project/About_Page.py",
     title="Home",
     icon=":material/account_circle:",
-    url_path="about"
+    url_path="about",
+    default= True
 )
 
 chat_page = st.Page(
