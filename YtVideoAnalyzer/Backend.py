@@ -5,8 +5,7 @@ from dotenv import load_dotenv
 from groq import Groq
 import whisper
 from fpdf import FPDF
-
-st.set_page_config(layout="centered")
+from URL_DB import insert_url
 
 # BACKGROUND
 def futuristic_bg():
@@ -153,7 +152,7 @@ st.divider()
 # LLM-SET-UP
 load_dotenv()
 
-# API KEY FROM ENVIORONMENT FILE
+# API KEY FROM ENVIORONMENT (.env) FILE
 API_KEY = os.getenv("GROQ_API_KEY")
 
 client = Groq(api_key=API_KEY)
@@ -168,7 +167,7 @@ def ask_llama(prompt):
 
     return response.choices[0].message.content
 
-# CREATING A PERMANENT FOLDER IN YOUR DIRECTORY 
+# CREATING A PERMANENT FOLDER IN YOUR DIRECTORY (FOR STORING THE AUDIO FORMATED file)
 os.makedirs("download_audio_folder", exist_ok=True)
 
 # FUNCTION FOR DOWNLOADING THE AUDIO
@@ -240,6 +239,8 @@ if st.button("Analyze Video"):
         """, unsafe_allow_html=True)
 
     if link:
+
+        insert_url(link)
 
         # download the audio
         audio_path = download_audio(link)
