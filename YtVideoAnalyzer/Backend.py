@@ -208,8 +208,6 @@ def download_summary(summary_text, filename="summary.pdf"):
     pdf.output(filename)
     return filename
 
-# https://youtu.be/4Bs0qUB3BHQ?si=77ozfTEwGQ5lbS2c
-
 # LINK-VERIFICATION
 link = st.text_input("Paste your YouTube link here : ")
 
@@ -268,7 +266,7 @@ You are an advanced AI video content explainer. Your job is to convert a YouTube
 
 --------------------------------------------
 
-# 📝 1. Overview / Summary
+📝 1. Overview / Summary
 Write a detailed summary (not short).  
 Explain the complete message of the video in simple language.  
 Add relevant emojis.
