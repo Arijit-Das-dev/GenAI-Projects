@@ -5,8 +5,8 @@ def connect_db():
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="YOUR_PASSWORD",
-        database="DATABASE_NAME"
+        password="Arijitdas@12",
+        database="URLDB"
     )
     return conn
 

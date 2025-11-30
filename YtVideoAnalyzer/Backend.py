@@ -192,22 +192,23 @@ def download_summary(summary_text, filename="summary.pdf"):
     clean_text = summary_text.encode("latin-1", "ignore").decode("latin-1")
 
     pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
 
     # Heading
-    pdf.set_font("Arial", "B", 18)   # Bold, size 18
-    pdf.cell(0, 10, "Summary", ln=True, align="C")  # Center heading
+    pdf.set_font("Arial", "B", 18)
+    pdf.cell(0, 10, "Summary", ln=True, align="C")
 
-    # Small gap
     pdf.ln(5)
 
-    # Body text
+    # Body
     pdf.set_font("Arial", size=12)
     pdf.multi_cell(0, 8, clean_text)
 
     pdf.output(filename)
     return filename
 
+# https://youtu.be/4Bs0qUB3BHQ?si=77ozfTEwGQ5lbS2c
 
 # LINK-VERIFICATION
 link = st.text_input("Paste your YouTube link here : ")
@@ -255,14 +256,72 @@ if st.button("Analyze Video"):
         st.success("Transcription Completed!")
 
         prompt = f"""
-You are an expert video summarizer. Summarize the following YouTube video transcript clearly and concisely so that a user can understand it easily.
+You are an advanced AI video content explainer. Your job is to convert a YouTube video transcript into a **well-structured, clear, long, and highly readable explanation**, just like how a top teacher, analyst, or expert would explain it.
 
-Instructions:
-1. Give a short **summary paragraph** first.
-2. Then give a section titled **Key Highlights** with clean bullet points.
-3. Make the summary easy to read and beginner-friendly.
-4. Avoid unnecessary details and focus only on what matters.
-5. If the transcript is unclear or noisy, rewrite it cleanly.
+🟦 GENERAL INSTRUCTIONS  
+- Understand the video topic (it may be about study, sports, entertainment, motivation, news, technology, tutorials, etc.).  
+- Based on the topic, write a **detailed, high-quality explanation**.  
+- The output should not be short. Make it **properly detailed** so the reader fully understands the topic, theme, and message of the entire video.  
+- Make the output **PDF-ready** with clean formatting.
+
+🟨 WRITE THE OUTPUT IN THE FOLLOWING FORMAT:
+
+--------------------------------------------
+
+# 📝 1. Overview / Summary
+Write a detailed summary (not short).  
+Explain the complete message of the video in simple language.  
+Add relevant emojis.
+
+--------------------------------------------
+
+# ⭐ 2. Key Highlights 
+- Use clean, simple bullet points  
+- Mention the most important ideas  
+- Add emojis for visual clarity  
+- Bold important keywords like **concepts**, **names**, **dates**, **rules**, etc.
+
+--------------------------------------------
+
+# 📘 3. Deep Explanation Section
+Explain the full topic in a smooth, easy-to-understand way.  
+Write it like a teacher explaining the entire chapter or concept.  
+Include:
+- Sub-headings  
+- Examples  
+- Definitions  
+- Important notes  
+- Step-by-step explanations  
+- Logical flow  
+
+This section should be **long, detailed, and complete**.
+
+--------------------------------------------
+
+# 🔍 4. Important Insights / Takeaways
+Provide meaningful takeaways based on the type of content.  
+Examples:
+- For study content → learning concepts  
+- For motivation → mindset lessons  
+- For sports → performance analysis  
+- For entertainment → main narrative  
+- For tech → features, tech details, improvements  
+
+--------------------------------------------
+
+# 🧠 5. Final Summary
+A short concluding paragraph summarizing everything.
+
+--------------------------------------------
+
+🛑 RULES:
+- Do NOT skip anything important from the transcript  
+- Do NOT write short outputs  
+- Do NOT add filler content  
+- Rewrite unclear/noisy transcript parts cleanly  
+- Output must be **professional, structured, clean, and highly readable**
+
+--------------------------------------------
 
 Transcript:
 {transcript_text}

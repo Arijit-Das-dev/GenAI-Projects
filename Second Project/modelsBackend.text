@@ -1,0 +1,19 @@
+        os.environ["GRPC_VERBOSITY"] = "NONE"
+        os.environ["GRPC_TRACE"] = ""
+
+        #API KEY
+        API_KEY = 'AIzaSyCMRngTm08Vsz1mvXyxuRoaIRn7PIayPlM'
+
+        #authentication
+        genai.configure(api_key=API_KEY)
+
+        #selecting the model
+        model = genai.GenerativeModel('gemini-2.0-flash')
+
+        #giving command to the model to start the chat
+        chat = model.start_chat()
+
+        
+
+        response = chat.send_message(user2) 
+        reply = response.candidates[0].content.parts[0].text 
